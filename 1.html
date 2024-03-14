@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Application Form</h2>
+        <form enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="please enter the Full Name">
+                <span id="full-name-error" class="error-message"></span>
+            </div>
+            <div class="form form-group">
+                <label for="addressline1">Candiate address:</label>
+                <input type="text" id="addressline1" name="address"  autocomplete="off" placeholder="Address-Line1">
+                <Span id="address1-error" class="error-message"></Span>
+            </div>
+            <div class="form form-group">
+                <input type="text" id="addressline2" name="address2"  autocomplete="off" placeholder="Address-Line2">
+                <Span id="address2-error" class="error-message"></Span>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <select name="Gender" id="Gender" class="placeholder">
+                    <option value="" selected disabled hidden >Select the Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span id="Gender-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company Name:</label>
+                <div class="autocomplete">
+                    <input type="text" id="company" name="company" onkeyup="searchCompany(this.value)"
+                        autocomplete="off" placeholder="Enter minimum three Characters to search Company Name">
+                    <div id="companyListContainer" class="autocomplete-items"></div>   
+                </div>
+                <span id="company-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="fresher">Status:</label>
+                <label for="fresher"><input type="radio" id="fresher" name="status" value="fresher" onclick="setExpToZero()">
+                    Fresher</label>
+                <label for="experienced"><input type="radio" id="experienced" name="status" value="experienced" onclick="setExpToZero()">
+                    Experienced</label>
+                <span id="status-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+                <div id="experienceBox" style="display: none;">
+                    <label for="experience1">Years of Experience:</label>
+                    <input type="text" id="experience1" name="experience1" placeholder="Please enter digits only" onclick="isExperience()">
+                    <Span id="experience1-error" class="error-message"></Span>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="tel" id="contact" name="contact" placeholder="Please enter the correct Contact Number">
+                    <span id="contact-error" class="error-message"></span> 
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Photo:</label>
+                    <input type="file" id="photo" name="photo"  accept="image/*" onchange="previewPhoto(this)">
+                    <img id="photoPreview" src="#" alt="Photo Preview" style="display: none;">
+                    <span id="photo-error" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Resume:</label>
+                    <input type="file" id="resume" name="resume" accept=".doc, .docx"><br>
+                    <Span> in .doc, .docx* format only</Span> 
+                    <span id="resume-error" class="error-message"></span>
+                </div>
+            </div>
+            <button type="button" onclick="onclickPreview()">Preview</button>
+        </form>
+    </div>
+
+    <div id="previewDialog" >
+        <div id="previewContent"></div>
+    </div>
+    <script src="1.js">
+    </script>
+</body>
+
+</html>
